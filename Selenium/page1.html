@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Page complexe pour Selenium</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+		}
+
+		header,
+		footer {
+			background-color: #333;
+			color: white;
+			padding: 10px;
+			text-align: center;
+		}
+
+		nav ul {
+			list-style-type: none;
+			padding: 0;
+		}
+
+		nav ul li {
+			display: inline;
+			margin-right: 10px;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		.highlight {
+			background-color: yellow;
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 10px;
+		}
+
+		#content-sections>div {
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+		<h1>Bienvenue sur la page complexe</h1>
+		<nav>
+			<ul>
+				<li><a href="#section1">Section 1</a></li>
+				<li><a href="#section2">Section 2</a></li>
+				<li><a href="#form">Formulaire</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<section id="content-sections">
+		<div id="section1">
+			<h2>Section 1: Introduction</h2>
+			<p>Ceci est un paragraphe dans la première section.</p>
+			<button id="toggle-section2">Afficher/Masquer Section 2</button>
+		</div>
+		<div id="section2" class="hidden">
+			<h2>Section 2: Contenu caché</h2>
+			<p>Ceci est un paragraphe dans la deuxième section, qui est cachée par défaut.</p>
+			<a href="https://www.example.com" target="_blank" id="example-link">Visiter Example.com</a>
+		</div>
+		<div id="section3">
+			<h2>Section 3: Tableaux</h2>
+			<table id="data-table">
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Âge</th>
+						<th>Profession</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Jean Dupont</td>
+						<td>30</td>
+						<td>Ingénieur</td>
+					</tr>
+					<tr class="highlight">
+						<td>Marie Curie</td>
+						<td>35</td>
+						<td>Scientifique</td>
+					</tr>
+					<tr>
+						<td>Albert Einstein</td>
+						<td>50</td>
+						<td>Physicien</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section id="form">
+		<h2>Formulaire de contact</h2>
+		<form id="contact-form">
+			<div>
+				<label for="name">Nom:</label>
+				<input type="text" id="name" name="name">
+			</div>
+			<div>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email">
+			</div>
+			<div>
+				<label for="message">Message:</label>
+				<textarea id="message" name="message"></textarea>
+			</div>
+			<div>
+				<label for="country">Pays:</label>
+				<select id="country" name="country">
+					<option value="fr">France</option>
+					<option value="us">États-Unis</option>
+					<option value="jp">Japon</option>
+				</select>
+			</div>
+			<div>
+				<input type="checkbox" id="subscribe" name="subscribe">
+				<label for="subscribe">S'abonner à la newsletter</label>
+			</div>
+			<div>
+				<button type="submit">Envoyer</button>
+				<button type="reset">Réinitialiser</button>
+			</div>
+		</form>
+	</section>
+
+	<footer>
+		<p>&copy; 2024 Page Complexe pour Selenium</p>
+	</footer>
+
+	<script>
+		document.getElementById('toggle-section2').addEventListener('click', function () {
+			var section2 = document.getElementById('section2');
+			if (section2.classList.contains('hidden')) {
+				section2.classList.remove('hidden');
+			} else {
+				section2.classList.add('hidden');
+			}
+		});
+	</script>
+</body>
+
+</html>
