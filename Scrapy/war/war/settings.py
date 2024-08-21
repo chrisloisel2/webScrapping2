@@ -50,9 +50,9 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
+# DOWNLOADER_MIDDLEWARES = {
 #    "war.middlewares.WarDownloaderMiddleware": 543,
-#}
+# }
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -65,6 +65,16 @@ ROBOTSTXT_OBEY = True
 ITEM_PIPELINES = {
    "war.pipelines.WarPipeline": 300,
 }
+
+MONGO_URI = "mongodb+srv://christoloisel:rose@cluster0.ppyauvl.mongodb.net/"
+MONGO_DATABASE = "war"
+
+
+PROXY = [
+	"http://proxy1.com",
+	"http://proxy2.com",
+	"http://proxy3.com",
+]
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

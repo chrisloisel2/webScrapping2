@@ -14,12 +14,21 @@ class WarSpiderMiddleware:
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
 
+    def __init__(self):
+        self.proxy = []
+
+    def process_request(self, request, spider):
+        proxy = random.choice(self.proxy)
+        request.meta["proxy"] = proxy
+        spider.logger.info("Using proxy %s" % self.proxy)
+        # Ajout d'un token
+        request.headers["Authorization "] = "Bearer	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYxNjIzOTAyMn0.7"
+
+
     @classmethod
     def from_crawler(cls, crawler):
         # This method is used by Scrapy to create your spiders.
-        s = cls()
-        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
-        return s
+        return cls(proxy=crawler.settings.getlist("PROXY"))
 
     def process_spider_input(self, response, spider):
         # Called for each response that goes through the spider
