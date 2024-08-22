@@ -44,9 +44,9 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    "war.middlewares.WarSpiderMiddleware": 543,
-#}
+SPIDER_MIDDLEWARES = {
+   "war.middlewares.WarSpiderMiddleware": 543,
+}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
@@ -71,9 +71,9 @@ MONGO_DATABASE = "war"
 
 
 PROXY = [
-	"http://proxy1.com",
-	"http://proxy2.com",
-	"http://proxy3.com",
+	"103.133.63.61",
+	"82.102.10.253",
+	"148.72.165.7",
 ]
 
 # Enable and configure the AutoThrottle extension (disabled by default)
